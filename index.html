@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>兰金鹏 | 个人简历 · 成果展示</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#faf9fc;
+  --white:#ffffff;
+  --text:#1a1c22;
+  --muted:#5c6370;
+  --accent:#7c3aed;
+  --accent2:#06b6a0;
+  --border:rgba(20,23,28,0.07);
+  --radius:14px;
+  --shadow:0 6px 20px rgba(16,18,24,0.05);
+  --shadow-hover:0 14px 32px rgba(16,18,24,0.09);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.75;
+}
+img{max-width:100%;height:auto;display:block;border-radius:10px}
+a{color:inherit;text-decoration:none}
+
+.container{max-width:1060px;margin:0 auto;padding:0 22px}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(18px);background:rgba(250,249,252,0.92);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;gap:6px;overflow-x:auto;padding:10px 22px;max-width:1060px;margin:0 auto}
+.nav-inner a{color:var(--muted);white-space:nowrap;padding:7px 11px;border-radius:9px;font-size:13px;transition:all .2s}
+.nav-inner a:hover,.nav-inner a.active{color:var(--accent);background:rgba(124,58,237,0.07)}
+
+/* Hero */
+.hero{padding:72px 0 20px}
+.hero .badge-line{display:inline-flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.hero .pill{font-size:12px;padding:5px 11px;border-radius:999px;background:rgba(124,58,237,0.08);color:var(--accent);font-weight:600}
+.hero h1{font-size:44px;font-weight:800;line-height:1.15;letter-spacing:-0.5px}
+.hero .lead{margin-top:14px;color:var(--muted);font-size:15px;max-width:640px;line-height:1.8}
+.hero .cta-row{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:11px;font-size:14px;font-weight:700;transition:all .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,#6d28d9,#7c3aed);color:#fff;box-shadow:0 8px 22px rgba(124,58,237,0.25)}
+.btn-outline{border:1.5px solid var(--border);color:var(--accent);background:var(--white)}
+
+/* Section */
+section{padding:44px 0 20px;position:relative;z-index:1}
+.sec-label{font-size:11px;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin-bottom:8px;font-weight:700}
+.sec-title{font-size:26px;font-weight:800;margin-bottom:12px}
+.sec-sub{color:var(--muted);font-size:14px;margin-bottom:20px;line-height:1.7}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr}}
+.about-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
+.about-card h4{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--accent)}
+.about-card p,.about-card ul{font-size:13.5px;color:var(--muted);line-height:1.75}
+.about-card ul{padding-left:18px}
+.about-card ul li{margin-bottom:6px}
+
+/* Stats */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:800px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px 16px;text-align:center;box-shadow:var(--shadow)}
+.stat-box .num{font-size:28px;font-weight:800;background:linear-gradient(135deg,#6d28d9,#06b6a0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat-box .lbl{color:var(--muted);font-size:12.5px;margin-top:6px;line-height:1.4}
+
+/* Timeline */
+.timeline{display:flex;flex-direction:column;gap:16px}
+.tl-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);display:flex;gap:16px;align-items:flex-start;transition:all .25s}
+.tl-item:hover{border-color:rgba(124,58,237,0.18);box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.tl-dot{flex-shrink:0;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;background:var(--accent)}
+.tl-dot.green{background:var(--accent2)}
+.tl-body{flex:1}
+.tl-body h3{font-size:16px;font-weight:700;margin-bottom:4px}
+.tl-body .meta{font-size:12px;color:var(--muted);margin-bottom:8px}
+.tl-body .desc{font-size:13.5px;color:var(--muted);line-height:1.75}
+.tl-body .desc ul{padding-left:16px;margin-top:6px}
+.tl-body .desc ul li{margin-bottom:4px}
+
+/* Image cards */
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.img-grid{grid-template-columns:1fr}}
+.img-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:all .25s;cursor:pointer}
+.img-card:hover{border-color:rgba(124,58,237,0.18);box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.img-card .pic{overflow:hidden}
+.img-card .pic img{width:100%;height:230px;object-fit:cover;border-radius:0;transition:transform .4s}
+.img-card:hover .pic img{transform:scale(1.05)}
+.img-card .cap{padding:12px 14px}
+.img-card .cap h4{font-size:13.5px;font-weight:700}
+.img-card .cap .date{font-size:11px;color:var(--muted);margin-top:3px}
+
+/* Cert grid */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.cert-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cert-grid{grid-template-columns:1fr}}
+.cert-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:all .25s;cursor:pointer}
+.cert-card:hover{border-color:rgba(124,58,237,0.18);box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.cert-card .pic{overflow:hidden}
+.cert-card .pic img{width:100%;height:200px;object-fit:cover;border-radius:0;transition:transform .4s}
+.cert-card:hover .pic img{transform:scale(1.05)}
+.cert-card .cap{padding:12px 14px}
+.cert-card .cap h4{font-size:13px;font-weight:700;line-height:1.4}
+.cert-card .cap .date{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* Skills */
+.skills-wrap{display:flex;flex-wrap:wrap;gap:10px}
+.sk-tag{padding:10px 16px;border-radius:999px;font-size:13px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow);transition:border-color .2s}
+.sk-tag:hover{border-color:var(--accent)}
+
+/* Contact */
+.contact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:750px){.contact-row{grid-template-columns:1fr}}
+.ct-item{display:flex;gap:10px;align-items:center;justify-content:center;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:15px;box-shadow:var(--shadow);transition:border-color .2s;font-size:14px}
+.ct-item:hover{border-color:var(--accent)}
+
+footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12px;padding:26px 0}
+
+.badge{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600}
+.badge.gold{background:rgba(245,183,77,0.15);color:#8b6914}
+.badge.silver{background:rgba(156,170,190,0.22);color:#3d4f5f}
+.badge.purple{background:rgba(124,58,237,0.10);color:#5b21b6}
+.badge.green{background:rgba(6,182,160,0.12);color:#0d6b5c}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{font-size:11px;padding:4px 9px;border-radius:999px;background:rgba(124,58,237,0.07);color:var(--accent)}
+
+/* Lightbox */
+.lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.86);justify-content:center;align-items:center;cursor:pointer}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,0.5)}
+</style>
+</head>
+<body>
+
+<div class="lb" id="lb" onclick="this.classList.remove('on')"><img id="lb-img" src="" alt=""></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero">首页</a>
+    <a href="#about">关于我</a>
+    <a href="#education">教育</a>
+    <a href="#projects">项目</a>
+    <a href="#internship">实习</a>
+    <a href="#competitions">竞赛</a>
+    <a href="#certs">证书</a>
+    <a href="#skills">技能</a>
+    <a href="#contact">联系</a>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section id="hero"><div class="container hero">
+  <div class="badge-line">
+    <span class="pill">AI算法工程师</span><span class="pill">大模型应用开发</span><span class="pill">机器视觉</span><span class="pill">求职实习中</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">  <img src="证件照.jpg" alt="兰金鹏" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 20px rgba(124,58,237,0.18);flex-shrink:0">  <div><h1 style="margin:0">兰金鹏</h1></div></div>
+  <div class="lead">
+    湖南工商大学人工智能专业本科生，兼具<strong>前沿技术研究</strong>与<strong>工程项目落地</strong>双重能力。以核心技术成员身份主导两项国家级大创，拥有AI智能体软著在审；作为团队负责人成功交付企业级大模型应用；斩获多项国家级AI赛事大奖。始终聚焦AI技术与文化传承的交叉创新，目标岗位：AI算法研发 / 大模型应用 / 智能系统开发工程师。
+  </div>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="#projects">项目经历</a>
+    <a class="btn btn-outline" href="#competitions">竞赛获奖</a>
+    <a class="btn btn-outline" href="#certs">证书资质</a>
+    <a class="btn btn-outline" href="#contact">联系我</a>
+  </div>
+</div></section>
+
+<!-- ====== 亮点数据 ====== -->
+<section><div class="container">
+  <div class="stats-row">
+    <div class="stat-box"><div class="num">2</div><div class="lbl">国家级大创项目<br>核心技术成员</div></div>
+    <div class="stat-box"><div class="num">全国二/三</div><div class="lbl">国家级AI赛事<br>多项大奖</div></div>
+    <div class="stat-box"><div class="num">15人</div><div class="lbl">实习带队规模<br>跨职能团队</div></div>
+    <div class="stat-box"><div class="num">64h</div><div class="lbl">志愿服务时长<br>社会责任</div></div>
+  </div>
+</div></section>
+
+<!-- ====== 关于我 ====== -->
+<section id="about"><div class="container">
+  <div class="sec-label">About Me</div>
+  <h2 class="sec-title">关于我</h2>
+  <div class="about-grid">
+    <div class="about-card">
+      <h4>📋 基本信息</h4>
+      <p>📍 湖南·长沙 &nbsp;|&nbsp; 🎂 20岁 &nbsp;|&nbsp; 共青团员<br>📞 19373864090 &nbsp;|&nbsp; 📧 1637182353@qq.com<br>🎯 意向：AI算法 / 大模型应用 / 机器视觉<br>🏙️ 意向城市：北京 &nbsp;|&nbsp; 💰 4k-10k（实习）</p>
+    </div>
+    <div class="about-card">
+      <h4>💡 自我评价</h4>
+      <ul>
+        <li>科研：核心技术成员主导两项国家级大创，AI智能体软著在审</li>
+        <li>工程：技术负责人带领15人团队交付企业级大模型应用</li>
+        <li>竞赛：斩获中国机器人及AI大赛全国二等奖、全球AI算法精英大赛全国三等奖等</li>
+        <li>聚焦AI×文化传承交叉创新，技术热情与社会责任感并重</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- ====== 教育背景 ====== -->
+<section id="education"><div class="container">
+  <div class="sec-label">Education</div>
+  <h2 class="sec-title">教育背景</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">🎓</div>
+      <div class="tl-body">
+        <h3>湖南工商大学 · 人工智能与先进计算 · 本科</h3>
+        <div class="meta">2023.9 — 至今</div>
+        <div class="desc">
+          主修课程：人工智能算法、机器视觉、多源异构数据处理、AI大模型技术、数学建模、智能机器人系统、Python/C++ 程序开发
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ====== 项目经历 ====== -->
+<section id="projects"><div class="container">
+  <div class="sec-label">Projects</div>
+  <h2 class="sec-title">项目经历</h2>
+  <div class="sec-sub">三项核心项目，从国家级大创到独立软著，覆盖AI音乐创作、文化生态平台、智能体非遗活化。</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">1</div>
+      <div class="tl-body">
+        <h3>国家级大创 — 湘楚音乐AI创作及数字人交互系统开发</h3>
+        <div class="meta">2025.3 — 至今 &nbsp;|&nbsp; 核心技术开发成员</div>
+        <div class="desc">
+          构建"数字化采集 → 智能化生成 → 产业化应用"全链条技术体系，实现非遗音乐的智能化活化与传播。
+          <ul><li>负责AI音乐创作模块算法设计与实现</li><li>数字人交互系统开发及核心功能测试优化</li><li>项目立项与阶段性成果产出的关键技术骨干</li></ul>
+        </div>
+        <div class="tags"><span class="tag">AI创作</span><span class="tag">数字人</span><span class="tag">全链条</span><span class="tag">国家级大创</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">2</div>
+      <div class="tl-body">
+        <h3>国家级大创 — 湘楚传统音乐文化活化生态社区开发</h3>
+        <div class="meta">2024.9 — 2025.2 &nbsp;|&nbsp; 核心技术开发成员</div>
+        <div class="desc">
+          打造集信息传播、创作分享、数字藏品发行于一体的文化生态数字平台，构建"传承与创新同频共振"的非遗生态。
+          <ul><li>主导湘楚音乐资料库的技术文献调研</li><li>深度参与技术路径规划与系统架构设计</li><li>为数字化实现奠定技术基础</li></ul>
+        </div>
+        <div class="tags"><span class="tag">生态平台</span><span class="tag">数字藏品</span><span class="tag">系统架构</span><span class="tag">国家级大创</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot green">3</div>
+      <div class="tl-body">
+        <h3>基于AI智能体的川剧非遗文化活化系统（V1.0 · 软著申请中）</h3>
+        <div class="meta">2024.11 — 2025.4 &nbsp;|&nbsp; 核心开发人（独立架构）</div>
+        <div class="desc">
+          独立完成系统架构设计，基于大模型与智能体技术构建集交互、传播、展示于一体的非遗活化系统。
+          <ul><li>验证了多模态融合与智能体在文化传承领域的创新应用</li><li>展现了将前沿AI技术产品化的完整能力</li></ul>
+        </div>
+        <div class="tags"><span class="tag">智能体</span><span class="tag">非遗</span><span class="tag">多模态</span><span class="tag">软著在审</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ====== 实习经历 ====== -->
+<section id="internship"><div class="container">
+  <div class="sec-label">Internship</div>
+  <h2 class="sec-title">实习经历</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot green">💼</div>
+      <div class="tl-body">
+        <h3>九章智云科技有限责任公司 · AI大模型工程与创新实践工作室</h3>
+        <div class="meta">2024.12 — 至今 &nbsp;|&nbsp; 技术负责人（实习）</div>
+        <div class="desc">
+          <ul>
+            <li><strong>团队领导力：</strong>带领15人跨职能团队，负责任务拆解、进度规划与内外部资源协调，保障项目群并行推进与高质量落地。</li>
+            <li><strong>工程实践：</strong>深度参与企业级AI大模型应用的场景化研发，主导需求分析、算法优化、功能开发至测试交付全流程，严格遵循企业级工程规范。</li>
+            <li><strong>价值产出：</strong>将学术成果转化为可复用的工程解决方案，积累了扎实的从0到1的企业级项目交付经验。</li>
+          </ul>
+        </div>
+        <div class="tags"><span class="tag">团队管理</span><span class="tag">大模型工程化</span><span class="tag">从0到1交付</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ====== 竞赛获奖 ====== -->
+<section id="competitions"><div class="container">
+  <div class="sec-label">Competitions</div>
+  <h2 class="sec-title">竞赛获奖</h2>
+  <div class="sec-sub">证书图片直接展示，点击可放大查看。</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">🏆</div>
+      <div class="tl-body">
+        <h3>第二十七届中国机器人及人工智能大赛 — 全国二等奖</h3>
+        <div class="meta">2025 年 · Simuro足球赛项</div>
+        <div class="desc">负责核心决策策略与算法设计，展现了出色的实时智能规划能力。</div>
+        <div class="tags"><span class="tag">机器人</span><span class="tag">强化策略</span><span class="tag">实时决策</span></div>
+        <span class="badge gold" style="margin-top:6px">国家级 · 全国二等奖</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🥈</div>
+      <div class="tl-body">
+        <h3>第七届全球校园人工智能算法精英大赛 — 全国三等奖</h3>
+        <div class="meta">2025 年</div>
+        <div class="desc">攻克多源异构数据协同的视频目标跟踪难题，主导视觉几何语义融合算法实现。</div>
+        <div class="tags"><span class="tag">视觉跟踪</span><span class="tag">多源融合</span><span class="tag">算法</span></div>
+        <span class="badge gold" style="margin-top:6px">国家级 · 全国三等奖</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🥉</div>
+      <div class="tl-body">
+        <h3>湖南省大学生数学建模竞赛 — 省级三等奖</h3>
+        <div class="meta">2025 年</div>
+        <div class="desc">担任建模与算法实现角色，快速完成问题建模与求解，体现了扎实的数学功底与工程化思维。</div>
+        <div class="tags"><span class="tag">数学建模</span><span class="tag">算法</span><span class="tag">工程思维</span></div>
+        <span class="badge silver" style="margin-top:6px">省级三等奖</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ====== 证书 & 证明材料 ====== -->
+<section id="certs"><div class="container">
+  <div class="sec-label">Certificates</div>
+  <h2 class="sec-title">证书与证明材料</h2>
+  <div class="sec-sub">全部证书及证明材料图片直接展示，点击可放大查看。</div>
+
+  <!-- 竞赛获奖证书 -->
+  <h3 style="font-size:17px;font-weight:700;margin-bottom:14px;color:var(--accent)">🏅 竞赛获奖证书</h3>
+  <div class="cert-grid" style="margin-bottom:28px">
+    <div class="cert-card" onclick="L('证书图片/足球国奖.jpg')"><div class="pic"><img src="证书图片/足球国奖.jpg" alt="机器人全国二等奖"></div><div class="cap"><h4>机器人及人工智能大赛全国二等奖</h4><div class="date">2025 年 8 月</div></div></div>
+    <div class="cert-card" onclick="L('证书图片/2025AIC国赛三等奖获奖证书-赛马制(2).jpg')"><div class="pic"><img src="证书图片/2025AIC国赛三等奖获奖证书-赛马制(2).jpg" alt="AIC全国三等奖"></div><div class="cap"><h4>AI算法精英大赛全国三等奖</h4><div class="date">2025 年</div></div></div>
+    <div class="cert-card" onclick="L('证书图片/足球省奖.jpg')"><div class="pic"><img src="证书图片/足球省奖.jpg" alt="机器人省赛二等奖"></div><div class="cap"><h4>机器人及人工智能大赛省赛二等奖</h4><div class="date">2025 年 6 月</div></div></div>
+    <div class="cert-card" onclick="L('证书图片/2025AIC省赛二等奖获奖证书-赛马制.jpg')"><div class="pic"><img src="证书图片/2025AIC省赛二等奖获奖证书-赛马制.jpg" alt="AIC省赛二等奖"></div><div class="cap"><h4>AI算法精英大赛省赛二等奖</h4><div class="date">2025 年</div></div></div>
+    <div class="cert-card" onclick="L('证书图片/数模获奖.jpg')"><div class="pic"><img src="证书图片/数模获奖.jpg" alt="数学建模三等奖"></div><div class="cap"><h4>数学建模竞赛省级三等奖</h4><div class="date">2025 年 12 月</div></div></div>
+  </div>
+
+  <!-- 国家级大创项目证明 -->
+  <h3 style="font-size:17px;font-weight:700;margin-bottom:14px;color:var(--accent)">📁 国家级大创项目证明</h3>
+  <div class="cert-grid" style="margin-bottom:28px">
+    <div class="cert-card" onclick="L('立项/1996d74c8498cf9113045dd6ca16feba.jpg')"><div class="pic"><img src="立项/1996d74c8498cf9113045dd6ca16feba.jpg" alt="国创项目结项验收证书（国家级）"></div><div class="cap"><h4>国创项目结项验收证书（国家级）</h4></div></div>
+    <div class="cert-card" onclick="L('立项/364dbc670258a05a267ddf0da853d16e.jpg')"><div class="pic"><img src="立项/364dbc670258a05a267ddf0da853d16e.jpg" alt="国创项目结项验收证书（省级）"></div><div class="cap"><h4>国创项目结项验收证书（省级）</h4></div></div>
+    <div class="cert-card" onclick="L('立项/78cad664c0a17309a33ed2a293e5868a.jpg')"><div class="pic"><img src="立项/78cad664c0a17309a33ed2a293e5868a.jpg" alt="国创项目中期检查报告封面"></div><div class="cap"><h4>国创项目中期检查报告封面</h4></div></div>
+    <div class="cert-card" onclick="L('立项/a4edbd70d323b60e6d1bb6d25087cf22.jpg')"><div class="pic"><img src="立项/a4edbd70d323b60e6d1bb6d25087cf22.jpg" alt="国创项目中期检查报告封底（含指导老师签字）"></div><div class="cap"><h4>国创项目中期检查报告封底</h4><div class="date">含指导老师签字</div></div></div>
+  </div>
+
+  <!-- 志愿服务与社会实践 -->
+  <h3 style="font-size:17px;font-weight:700;margin-bottom:14px;color:var(--accent)">🤝 志愿服务与社会实践</h3>
+  <div class="cert-grid">
+    <div class="cert-card" onclick="L('优秀青年志愿者.jpg')"><div class="pic"><img src="优秀青年志愿者.jpg" alt="优秀青年志愿者证书"></div><div class="cap"><h4>优秀青年志愿者</h4><div class="date">2025 年 6 月 · 共青团湖南工商大学委员会</div></div></div>
+    <div class="cert-card" onclick="L('志愿服务证明.jpg')"><div class="pic"><img src="志愿服务证明.jpg" alt="志愿服务证明"></div><div class="cap"><h4>"青春护苗"志愿服务证明</h4><div class="date">累计64小时 · 2024 年 8 月 · 共青团冷水江市委员会</div></div></div>
+    <div class="cert-card" onclick="L('三下乡社会实践.jpg')"><div class="pic"><img src="三下乡社会实践.jpg" alt="三下乡社会实践"></div><div class="cap"><h4>三下乡社会实践</h4><div class="date">暑期社会实践项目</div></div></div>
+  </div>
+</div></section><!-- ====== 专业技能 ====== -->
+<section id="skills"><div class="container">
+  <div class="sec-label">Skills</div>
+  <h2 class="sec-title">专业技能</h2>
+  <div class="skills-wrap">
+    <span class="sk-tag">Python</span>
+    <span class="sk-tag">C / C++</span>
+    <span class="sk-tag">机器视觉</span>
+    <span class="sk-tag">视频目标跟踪</span>
+    <span class="sk-tag">多源异构数据处理</span>
+    <span class="sk-tag">AI大模型应用开发</span>
+    <span class="sk-tag">多模态融合</span>
+    <span class="sk-tag">智能体系统构建</span>
+    <span class="sk-tag">数据结构与算法</span>
+    <span class="sk-tag">系统架构设计</span>
+    <span class="sk-tag">项目管理</span>
+    <span class="sk-tag">Git</span>
+  </div>
+</div></section>
+
+<!-- ====== 联系 ====== -->
+<section id="contact"><div class="container">
+  <div class="sec-label">Contact</div>
+  <h2 class="sec-title">联系方式</h2>
+  <div class="contact-row">
+    <a class="ct-item" href="mailto:1637182353@qq.com">📧 1637182353@qq.com</a>
+    <a class="ct-item" href="tel:19373864090">📱 19373864090</a>
+    <a class="ct-item" href="#projects">📂 项目与成果（页内导航）</a>
+  </div>
+</div></section>
+
+<footer>
+  <p>© 2026 兰金鹏 — AI算法 / 大模型应用 / 机器视觉 &nbsp;|&nbsp; 求职实习中 &nbsp;|&nbsp; 所有图片可点击放大</p>
+</footer>
+
+<script>
+function L(s){document.getElementById('lb-img').src=s;document.getElementById('lb').classList.add('on')}
+document.querySelectorAll('nav a[href^="#"]').forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+(function(){var s=document.querySelectorAll('section[id]'),n=document.querySelectorAll('nav a');var o=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){n.forEach(function(l){l.classList.remove('active')});var a=document.querySelector('nav a[href="#'+e.target.id+'"]');if(a)a.classList.add('active')}})},{rootMargin:'-50% 0px -50% 0px'});s.forEach(function(x){o.observe(x)})})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
